@@ -1,5 +1,5 @@
 /* =========================================
-   1. ПЕРЕМЕННЫЕ И ЦВЕТА (БРИКС)
+   1. ПЕРЕМЕННЫЕ И ЦВЕТА
    ========================================= */
 :root {
     --brics-blue: #0B3B60;
@@ -137,7 +137,7 @@ body {
     font-family: var(--font-heading);
     font-size: 2rem;
     color: var(--brics-blue);
-    margin: 60px 0 40px 0;
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -145,8 +145,8 @@ body {
    5. КАРУСЕЛЬ С ЦИТАТАМИ
    ========================================= */
 .carousel-section {
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: 20px;
+    margin-bottom: 100px; /* Увеличен отступ снизу, чтобы отделить от таблицы */
 }
 
 .carousel-container {
@@ -185,7 +185,6 @@ body {
     display: block;
 }
 
-/* Состояния картинок */
 .carousel-item.active {
     z-index: 3;
     transform: translateX(0) scale(1);
@@ -208,7 +207,6 @@ body {
     opacity: 0.4;
 }
 
-/* Кнопки-стрелки */
 .carousel-arrow {
     background-color: var(--brics-blue);
     color: white;
@@ -240,8 +238,8 @@ body {
    6. ИНТЕРАКТИВНАЯ ТАБЛИЦА (СУВЕРЕНИТЕТ)
    ========================================= */
 .sovereignty-section {
-    margin-top: 60px;
-    padding-top: 20px;
+    padding-top: 40px;
+    border-top: 2px dashed rgba(11, 59, 96, 0.15); /* Разделительная линия */
 }
 
 .sovereignty-wrapper {
@@ -288,40 +286,43 @@ body {
     border-bottom: none;
 }
 
-/* Анимации мерцания */
+/* 
+   УСИЛЕННЫЕ АНИМАЦИИ МЕРЦАНИЯ 
+   Теперь они точно заметны (изменение от 5% до 25% плотности цвета)
+*/
 @keyframes pulse-red {
-    0%, 100% { background-color: rgba(220, 38, 38, 0.03); }
-    50% { background-color: rgba(220, 38, 38, 0.09); }
+    0%, 100% { background-color: rgba(220, 38, 38, 0.05); }
+    50% { background-color: rgba(220, 38, 38, 0.25); box-shadow: inset 0 0 15px rgba(220, 38, 38, 0.1); }
 }
 @keyframes pulse-blue {
-    0%, 100% { background-color: rgba(37, 99, 235, 0.03); }
-    50% { background-color: rgba(37, 99, 235, 0.09); }
+    0%, 100% { background-color: rgba(37, 99, 235, 0.05); }
+    50% { background-color: rgba(37, 99, 235, 0.25); box-shadow: inset 0 0 15px rgba(37, 99, 235, 0.1); }
 }
 @keyframes pulse-green {
-    0%, 100% { background-color: rgba(22, 163, 74, 0.03); }
-    50% { background-color: rgba(22, 163, 74, 0.09); }
+    0%, 100% { background-color: rgba(22, 163, 74, 0.05); }
+    50% { background-color: rgba(22, 163, 74, 0.25); box-shadow: inset 0 0 15px rgba(22, 163, 74, 0.1); }
 }
 
 /* Применение анимаций */
-.sovereignty-table td:nth-child(2) { animation: pulse-red 6s infinite ease-in-out; }
+.sovereignty-table td:nth-child(2) { animation: pulse-red 4s infinite ease-in-out; }
 .sovereignty-table th:nth-child(2) {
-    background-color: rgba(220, 38, 38, 0.05);
+    background-color: rgba(220, 38, 38, 0.1);
     color: #dc2626;
-    border-bottom: 2px solid rgba(220, 38, 38, 0.2);
+    border-bottom: 2px solid rgba(220, 38, 38, 0.3);
 }
 
-.sovereignty-table td:nth-child(3) { animation: pulse-blue 6s infinite ease-in-out; }
+.sovereignty-table td:nth-child(3) { animation: pulse-blue 4s infinite ease-in-out; }
 .sovereignty-table th:nth-child(3) {
-    background-color: rgba(37, 99, 235, 0.05);
+    background-color: rgba(37, 99, 235, 0.1);
     color: #2563eb;
-    border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+    border-bottom: 2px solid rgba(37, 99, 235, 0.3);
 }
 
-.sovereignty-table td:nth-child(4) { animation: pulse-green 6s infinite ease-in-out; }
+.sovereignty-table td:nth-child(4) { animation: pulse-green 4s infinite ease-in-out; }
 .sovereignty-table th:nth-child(4) {
-    background-color: rgba(22, 163, 74, 0.05);
+    background-color: rgba(22, 163, 74, 0.1);
     color: #16a34a;
-    border-bottom: 2px solid rgba(22, 163, 74, 0.2);
+    border-bottom: 2px solid rgba(22, 163, 74, 0.3);
 }
 
 .sovereignty-table tr:hover td:first-child {
@@ -340,7 +341,9 @@ body {
 
 @media (max-width: 768px) {
     .content-section { padding: 40px 15px; }
-    .section-subtitle { font-size: 1.6rem; margin: 40px 0 20px 0; }
+    .section-subtitle { font-size: 1.6rem; margin-bottom: 20px; }
+    
+    .carousel-section { margin-bottom: 60px; }
     
     .carousel-stage { height: 300px; }
     .carousel-item { width: 80%; }
