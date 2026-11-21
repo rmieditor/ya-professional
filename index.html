@@ -127,13 +127,11 @@
         <p>Шапка успешно развернулась. Теперь вы можете читать далее.</p>
     </div>
 
-    <!-- Скрытое видео. Замените ссылку на свое видео (желательно MP4, H.264) -->
-    <!-- crossOrigin="anonymous" нужен, чтобы избежать проблем с CORS при отрисовке на канвас -->
+    <!-- Скрытое видео. Путь к вашему файлу: папка img, файл "vid 1.mp4" -->
     <video id="source-video" 
-           src="vid 1.mp4" 
+           src="img/vid 1.mp4" 
            muted 
-           playsinline 
-           crossorigin="anonymous">
+           playsinline>
     </video>
 
     <!-- Подключаем GSAP и ScrollTrigger -->
@@ -206,12 +204,9 @@
             });
 
             // Запускаем цикл отрисовки кадров (requestAnimationFrame)
-            // Это нужно, потому что видео может не успевать отрисовываться само
             function render() {
                 if (video.readyState >= 2) {
-                    // Очищаем канвас
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    // Рисуем текущий кадр видео, растягивая его на весь экран
                     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                 }
                 requestAnimationFrame(render);
@@ -221,10 +216,10 @@
 
         // Обработка ошибки загрузки видео
         video.addEventListener('error', () => {
-            console.error("Ошибка загрузки видео. Проверьте ссылку или CORS.");
-            // Фолбэк: заливаем фон градиентом, если видео не загрузилось
+            console.error("Ошибка загрузки видео. Проверьте правильность пути 'img/vid 1.mp4'.");
             canvas.style.background = "linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d)";
-            title.innerText = "Ошибка загрузки видео";
+            title.innerText = "Видео не найдено";
+            subtitle.innerText = "Проверьте путь к файлу";
         });
     </script>
 </body>
