@@ -4,100 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интерактивная шапка (Scroll Video)</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #111;
-            color: #fff;
-        }
-
-        /* 
-         * УМЕНЬШИЛИ ВЫСОТУ: Теперь нужно прокрутить 250% экрана вместо 400%.
-         * Чем меньше это значение, тем быстрее пролетит анимация.
-         * Не ставьте меньше 150vh, иначе анимация будет слишком резкой.
-         */
-        .scroll-track {
-            height: 200vh; 
-            position: relative;
-        }
-
-        .sticky-viewport {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000;
-        }
-
-        #video-canvas {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            display: block;
-        }
-
-        .overlay-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 10;
-            width: 90%;
-            max-width: 1000px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-        }
-
-        .overlay-text h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
-
-        .overlay-text p {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            font-weight: 300;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        #source-video {
-            display: none;
-        }
-
-        .next-section {
-            min-height: 100vh;
-            padding: 100px 20px;
-            background: #fff;
-            color: #333;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .next-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-    </style>
+    
+    <!-- Подключаем внешний файл со стилями -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+    <!-- 1. Блок управления прокруткой -->
     <div class="scroll-track">
+        <!-- 2. Визуальный блок, который фиксируется -->
         <div class="sticky-viewport">
             <canvas id="video-canvas"></canvas>
             
@@ -108,20 +23,20 @@
         </div>
     </div>
 
+    <!-- 3. Следующий контент на сайте -->
     <div class="next-section">
         <h2>Основной контент сайта</h2>
         <p>Шапка успешно развернулась. Теперь вы можете читать далее.</p>
     </div>
 
-    <video id="source-video" 
-           src="img/vid 1.mp4" 
-           muted 
-           playsinline>
-    </video>
+    <!-- Скрытое видео (путь к вашему файлу) -->
+    <video id="source-video" src="img/vid 1.mp4" muted playsinline></video>
 
+    <!-- Подключаем библиотеки GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+    <!-- Логика работы анимации -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
@@ -131,21 +46,39 @@
         const title = document.getElementById('main-title');
         const subtitle = document.getElementById('sub-title');
 
-        // Переменная для хранения времени предыдущего отрисованного кадра
         let lastTime = -1;
 
+        // Функция изменения размера холста
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             if (video.readyState >= 2) {
-                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                drawVideoFrame(); 
             }
         }
+
+        // Функция отрисовки видео с сохранением пропорций (эффект object-fit: cover)
+        function drawVideoFrame() {
+            const hRatio = canvas.width / video.videoWidth;
+            const vRatio = canvas.height / video.videoHeight;
+            const ratio = Math.max(hRatio, vRatio);
+            
+            const centerShift_x = (canvas.width - video.videoWidth * ratio) / 2;
+            const centerShift_y = (canvas.height - video.videoHeight * ratio) / 2;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(
+                video, 
+                0, 0, video.videoWidth, video.videoHeight,
+                centerShift_x, centerShift_y, video.videoWidth * ratio, video.videoHeight * ratio
+            );
+        }
+
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
         video.addEventListener('loadeddata', () => {
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            drawVideoFrame();
 
             gsap.to(video, {
                 currentTime: video.duration,
@@ -154,14 +87,14 @@
                     trigger: ".scroll-track",
                     start: "top top",
                     end: "bottom bottom",
-                    // ИЗМЕНЕНО: scrub: 1 делает прокрутку более плавной и "тягучей".
-                    // Если хотите еще плавнее, поставьте 1.5 или 2.
-                    scrub: 1, 
-                    pin: true,
+                    scrub: 1, // Плавность прокрутки
+                    pin: ".sticky-viewport", // Фиксируем только экран
+                    pinSpacing: true, 
                     anticipatePin: 1,
                     onUpdate: (self) => {
                         const progress = self.progress;
                         
+                        // Логика появления текста
                         if (progress > 0.1 && progress < 0.4) {
                             title.innerText = "Ледокол";
                             subtitle.innerText = "Вид снаружи";
@@ -184,12 +117,21 @@
                     }
                 }
             });
+
+            // Цикл отрисовки (чтобы не было черных полос)
+            function render() {
+                if (video.readyState >= 2) {
+                    if (video.currentTime !== lastTime) {
+                        drawVideoFrame();
+                        lastTime = video.currentTime;
+                    }
                 }
                 requestAnimationFrame(render);
             }
             render();
         });
 
+        // Обработка ошибки загрузки
         video.addEventListener('error', () => {
             console.error("Ошибка загрузки видео. Проверьте путь 'img/vid 1.mp4'.");
             canvas.style.background = "linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d)";
