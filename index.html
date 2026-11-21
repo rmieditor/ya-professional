@@ -184,16 +184,6 @@
                     }
                 }
             });
-
-            // Улучшенный цикл отрисовки
-            function render() {
-                if (video.readyState >= 2) {
-                    // Отрисовываем только если время видео изменилось (кадр сменился)
-                    if (video.currentTime !== lastTime) {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                        lastTime = video.currentTime;
-                    }
                 }
                 requestAnimationFrame(render);
             }
