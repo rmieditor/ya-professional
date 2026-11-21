@@ -1,17 +1,21 @@
-/* --- ПЕРЕМЕННЫЕ И ЦВЕТА (БРИКС) --- */
+/* =========================================
+   1. ПЕРЕМЕННЫЕ И ЦВЕТА (БРИКС)
+   ========================================= */
 :root {
-    --brics-blue: #0B3B60;
-    --brics-red: #C62828;
-    --brics-yellow: #F4B400;
-    --brics-green: #2E7D32;
-    --bg-light: #F9F9F9;
+    --brics-blue: #0B3B60;    /* Глубокий синий */
+    --brics-red: #C62828;     /* Насыщенный красный */
+    --brics-yellow: #F4B400;  /* Золотисто-желтый */
+    --brics-green: #2E7D32;   /* Уверенный зеленый */
+    --bg-light: #F9F9F9;      /* Светлый фон */
     --text-main: #333333;
     --text-muted: #666666;
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Roboto', sans-serif;
 }
 
-/* --- СБРОС СТИЛЕЙ --- */
+/* =========================================
+   2. СБРОС СТИЛЕЙ
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -25,7 +29,9 @@ body {
     line-height: 1.7;
 }
 
-/* --- БЛОК С ВИДЕО --- */
+/* =========================================
+   3. БЛОК С ВИДЕО (ШАПКА)
+   ========================================= */
 .scroll-track {
     height: 250vh; 
     position: relative;
@@ -51,6 +57,7 @@ body {
     backface-visibility: hidden;
 }
 
+/* Затемнение на видео для читаемости текста */
 .sticky-viewport::after {
     content: '';
     position: absolute;
@@ -88,7 +95,7 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* --- АНИМИРОВАННАЯ СТРЕЛОЧКА --- */
+/* Анимированная стрелочка вниз */
 .scroll-arrow {
     position: absolute;
     bottom: 40px;
@@ -121,7 +128,9 @@ body {
     display: none;
 }
 
-/* --- КОНТЕНТ СТАТЬИ --- */
+/* =========================================
+   4. КОНТЕНТ СТАТЬИ
+   ========================================= */
 .content-section {
     padding: 80px 20px;
     background-color: var(--bg-light);
@@ -193,10 +202,12 @@ body {
     border-bottom: 2px solid rgba(11, 59, 96, 0.1);
 }
 
+/* Цветовые выделения в тексте */
 .highlight-blue { color: var(--brics-blue); font-weight: 600; }
 .highlight-red { color: var(--brics-red); font-weight: 600; }
 .highlight-green { color: var(--brics-green); font-weight: 600; }
 
+/* Блок вывода */
 .conclusion {
     background-color: #ffffff;
     padding: 30px;
@@ -211,7 +222,9 @@ body {
     font-size: 1.15rem;
 }
 
-/* --- КАРУСЕЛЬ С ЦИТАТАМИ --- */
+/* =========================================
+   5. КАРУСЕЛЬ С ЦИТАТАМИ
+   ========================================= */
 .carousel-section {
     margin-top: 80px;
     padding-top: 40px;
@@ -263,7 +276,7 @@ body {
     display: block;
 }
 
-/* Состояние активной (центральной) картинки */
+/* Состояния картинок */
 .carousel-item.active {
     z-index: 3;
     transform: translateX(0) scale(1);
@@ -272,7 +285,6 @@ body {
     pointer-events: auto;
 }
 
-/* Левая картинка (уходит назад и размывается) */
 .carousel-item.left {
     z-index: 1;
     transform: translateX(-55%) scale(0.75);
@@ -280,7 +292,6 @@ body {
     opacity: 0.5;
 }
 
-/* Правая картинка (уходит назад и размывается) */
 .carousel-item.right {
     z-index: 1;
     transform: translateX(55%) scale(0.75);
@@ -288,7 +299,7 @@ body {
     opacity: 0.5;
 }
 
-/* Кнопки-стрелки */
+/* Кнопки-стрелки карусели */
 .carousel-arrow {
     background-color: var(--brics-blue);
     color: white;
@@ -316,68 +327,9 @@ body {
     transform: scale(0.95);
 }
 
-/* --- ФУТЕР --- */
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: var(--brics-blue);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-    font-style: italic;
-    line-height: 1.5;
-}
-
-/* --- АДАПТИВНОСТЬ --- */
-@media (max-width: 900px) {
-    .carousel-stage {
-        height: 350px;
-    }
-    .carousel-item {
-        width: 70%;
-    }
-    .carousel-item.left {
-        transform: translateX(-60%) scale(0.7);
-    }
-    .carousel-item.right {
-        transform: translateX(60%) scale(0.7);
-    }
-}
-
-@media (max-width: 768px) {
-    .content-section {
-        padding: 50px 15px;
-    }
-    .article-title {
-        padding-left: 15px;
-    }
-    .content-section p {
-        font-size: 1rem;
-    }
-    .conclusion {
-        padding: 20px;
-    }
-    .carousel-stage {
-        height: 280px;
-    }
-    .carousel-item {
-        width: 80%;
-    }
-    .carousel-item.left {
-        transform: translateX(-65%) scale(0.65);
-    }
-    .carousel-item.right {
-        transform: translateX(65%) scale(0.65);
-    }
-    .carousel-arrow {
-        width: 45px;
-        height: 45px;
-        font-size: 1rem;
-    }
-    .carousel-container {
-        gap: 10px;
-    }
-}
-/* --- ИНФОГРАФИКА (ТАБЛИЦА) --- */
+/* =========================================
+   6. ИНФОГРАФИКА (ТАБЛИЦА)
+   ========================================= */
 .infographic-section {
     margin-top: 80px;
     padding-top: 40px;
@@ -438,7 +390,7 @@ footer {
     border-bottom: none;
 }
 
-/* Эффекты анимации */
+/* Эффекты анимации инфографики */
 .info-table .highlighted {
     background-color: rgba(244, 180, 0, 0.15) !important; /* Желтоватый фон */
     box-shadow: inset 0 0 15px rgba(244, 180, 0, 0.4); /* Свечение изнутри */
@@ -453,7 +405,7 @@ footer {
     opacity: 0.5;
 }
 
-/* Кнопка управления */
+/* Кнопка управления инфографикой */
 .infographic-controls {
     display: flex;
     justify-content: center;
@@ -488,4 +440,87 @@ footer {
 
 .pause-btn span:first-child {
     font-size: 0.9rem;
+}
+
+/* =========================================
+   7. ФУТЕР
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--brics-blue);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* =========================================
+   8. АДАПТИВНОСТЬ (МОБИЛЬНЫЕ УСТРОЙСТВА)
+   ========================================= */
+@media (max-width: 900px) {
+    .carousel-stage {
+        height: 350px;
+    }
+    .carousel-item {
+        width: 70%;
+    }
+    .carousel-item.left {
+        transform: translateX(-60%) scale(0.7);
+    }
+    .carousel-item.right {
+        transform: translateX(60%) scale(0.7);
+    }
+}
+
+@media (max-width: 768px) {
+    .content-section {
+        padding: 50px 15px;
+    }
+    
+    .article-title {
+        padding-left: 15px;
+    }
+    
+    .content-section p {
+        font-size: 1rem;
+    }
+    
+    .conclusion {
+        padding: 20px;
+    }
+    
+    /* Адаптация карусели */
+    .carousel-stage {
+        height: 280px;
+    }
+    
+    .carousel-item {
+        width: 80%;
+    }
+    
+    .carousel-item.left {
+        transform: translateX(-65%) scale(0.65);
+    }
+    
+    .carousel-item.right {
+        transform: translateX(65%) scale(0.65);
+    }
+    
+    .carousel-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    .carousel-container {
+        gap: 10px;
+    }
+
+    /* Адаптация таблицы */
+    .info-table th,
+    .info-table td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
 }
