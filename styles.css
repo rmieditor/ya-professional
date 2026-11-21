@@ -46,6 +46,10 @@ body {
     width: 100%;
     height: 100%;
     display: block;
+    /* Аппаратное ускорение */
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 /* Затемнение на видео, чтобы текст читался */
