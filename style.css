@@ -2,34 +2,11 @@
 @charset "UTF-8";
 :root{--green:#6f9fc7;--gold:#8fb6d8;--blue:#4a7fa8;--ink:#243440;--paper:#f4f8fb;--line:#d8e4ee;--ru:74,127,168;--cn:217,98,98;--in:88,168,118;--accent:var(--blue);--rail:174px;--radius:18px}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:var(--paper);color:var(--ink);font-family:"PT Sans","Inter","SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}body.modal-open{overflow:hidden}a{color:var(--accent);text-underline-offset:4px;text-decoration-thickness:1px}a:hover{text-decoration-thickness:2px}button{font:inherit;color:inherit;cursor:pointer}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--gold);outline-offset:5px}button{touch-action:manipulation}h1,h2,h3,p{margin:0}h1,h2,h3{text-wrap:balance;font-family:"PT Serif",Georgia,"Times New Roman",serif}p{font-size:clamp(17px,1.14vw,22px);line-height:1.65;text-align:justify;text-indent:1.5em;hyphens:auto;overflow-wrap:break-word}p+p{margin-top:1em}h2{font-size:clamp(32px,3.1vw,58px);font-weight:500;line-height:1.13;letter-spacing:-.045em}h3{font-size:28px;line-height:1.2;letter-spacing:-.03em}main{margin-right:var(--rail)}.section{position:relative;min-height:100svh;padding:82px 0;scroll-margin-top:0;overflow:clip}.container{width:calc(100% - 112px);max-width:1370px;margin:auto}.container.wide{width:calc(100% - 80px);max-width:1500px}.section-heading{margin-bottom:42px;max-width:1100px}.eyebrow,.mini-label{display:block;font-size:12px;font-weight:600;line-height:1.5;letter-spacing:.13em;text-transform:uppercase}.eyebrow{color:var(--accent);margin-bottom:18px}.mini-label{color:#39443e}.section-heading:before{content:"";display:block;width:68px;height:4px;background:linear-gradient(90deg,#9dbdd8,#4a7fa8);margin-bottom:27px}.side-nav{position:fixed;right:0;top:0;bottom:0;width:var(--rail);z-index:50;background:transparent;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:18px 14px;border-left:1px solid #ffffff12}.side-nav:before{content:"";display:none}.side-nav a{color:#243440;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 8px;text-decoration:none;font-size:12px;line-height:1.4;border-radius:5px;transition:background .3s,color .3s}.nav-number{display:none}.side-nav a:hover{background:#ffffff66}.side-nav a[aria-current]{color:#2b5d84;background:#ffffff88}.reading-progress{position:fixed;top:0;left:0;width:calc(100% - var(--rail));height:3px;background:var(--blue);transform:scaleX(0);transform-origin:left;z-index:100}.skip-link{position:fixed;left:16px;top:-100px;z-index:150;background:white;padding:12px}.skip-link:focus{top:16px}
-.hero{padding:36px 56px;display:flex;flex-direction:column;justify-content:space-between;min-height:100svh;background:#7d9cb8;isolation:isolate}.hero-slides,.hero-slide{position:absolute;inset:0;z-index:-2}..hero-slides,
-.hero-slides {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-position: center;
-  background-size: cover;
-  opacity: 0;
-  animation: heroFade 9s infinite;
-}
-
-.hero-slide.slide-1 {
-  animation-delay: 0s;
-}
-
-.hero-slide.slide-2 {
-  animation-delay: 3s;
-}
-
-.hero-slide.slide-3 {
-  animation-delay: 6s;
-}
-
+.hero{position:relative;padding:36px 56px;display:flex;flex-direction:column;justify-content:space-between;min-height:100svh;background:#7d9cb8;isolation:isolate}.hero-slides{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-slide{position:absolute;inset:0;background-position:center;background-size:cover;opacity:0;animation:heroFade 9s infinite}
+.hero-slide.slide-1{animation-delay:0s}
+.hero-slide.slide-2{animation-delay:3s}
+.hero-slide.slide-3{animation-delay:6s}
 @keyframes heroFade {
   0%   { opacity: 0; }
   5%   { opacity: 1; }
@@ -37,7 +14,6 @@
   35%  { opacity: 0; }
   100% { opacity: 0; }
 }
-
 .hero-slides:after {
   content: "";
   position: absolute;
