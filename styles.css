@@ -1,13 +1,12 @@
 /* --- ПЕРЕМЕННЫЕ --- */
 :root {
-    --color-primary: #0B3B60; /* Глубокий синий */
-    --color-accent: #F4B400;  /* Золотисто-желтый */
-    --color-bg: #FFFFFF;      /* Белый */
-    --color-bg-alt: #F4F6F8;  /* Слегка серый для блоков */
-    --text-main: #000000;     /* Черный текст */
+    --color-primary: #0B3B60;
+    --color-accent: #F4B400;
+    --color-bg: #FFFFFF;
+    --color-bg-alt: #F4F6F8;
+    --text-main: #000000;
     --text-light: #ffffff;
-    --link-color: #1E90FF;    /* Голубые ссылки */
-    
+    --link-color: #1E90FF;
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Roboto', sans-serif;
 }
@@ -53,7 +52,7 @@ a:hover {
 
 /* --- СЕКЦИЯ 1: ШАПКА --- */
 .hero-wrapper {
-    height: 300vh; /* Высота для скролла */
+    height: 300vh;
     position: relative;
 }
 
@@ -78,20 +77,43 @@ a:hover {
     top: 0; left: 0; width: 100%; height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .bg-img.active {
     opacity: 1;
 }
 
-/* Затемнение фона */
 .hero-sticky::after {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(11, 59, 96, 0.6);
+    background: rgba(11, 59, 96, 0.65); /* Затемнение */
     z-index: 2;
+}
+
+/* Кнопка-ссылка на источник */
+.source-link-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 12px;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    transition: background 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.source-link-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    transform: scale(1.1);
+    text-decoration: none;
 }
 
 .hero-content {
@@ -103,6 +125,7 @@ a:hover {
     color: var(--text-light);
 }
 
+/* Текстовые блоки друг на друге */
 .text-block {
     position: absolute;
     top: 50%;
@@ -111,7 +134,6 @@ a:hover {
     width: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease;
 }
 
 .text-block.active {
@@ -163,19 +185,23 @@ a:hover {
     background: var(--color-bg);
 }
 
-.relevance-content p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    text-align: justify;
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
-.image-container {
-    margin: 40px 0;
+/* Обтекание картинкой справа */
+.image-float-container {
+    float: right;
+    width: 40%;
+    max-width: 350px;
+    margin: 0 0 20px 30px;
     text-align: center;
 }
 
 .content-img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -183,14 +209,20 @@ a:hover {
 }
 
 .content-img:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 .img-caption {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #666;
-    margin-top: 10px;
+    margin-top: 8px;
     font-style: italic;
+}
+
+.relevance-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    text-align: justify;
 }
 
 .conclusion-box {
@@ -260,21 +292,21 @@ a:hover {
     width: 100%;
     max-width: 800px;
     overflow: hidden;
-    position: relative;
 }
 
 .cards-track {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.5s ease-in-out;
 }
 
 .card {
-    min-width: 100%;
+    min-width: 100%; /* Важно для карусели */
     background: var(--color-bg);
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     position: relative;
+    box-sizing: border-box;
 }
 
 .card h3 {
@@ -282,7 +314,7 @@ a:hover {
     font-family: var(--font-heading);
     margin-bottom: 15px;
     font-size: 1.5rem;
-    padding-right: 40px; /* Место для кнопки */
+    padding-right: 40px;
 }
 
 .card p {
@@ -303,7 +335,7 @@ a:hover {
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+    transition: 0.3s;
 }
 
 .help-btn:hover {
@@ -321,7 +353,7 @@ a:hover {
     border-radius: 50%;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: 0.3s;
     flex-shrink: 0;
 }
 
@@ -421,8 +453,6 @@ a:hover {
     width: 500px;
     height: 500px;
     margin: 0 auto;
-    border-radius: 50%;
-    /* border: 1px dashed #ccc; Для отладки */
 }
 
 .center-circle {
@@ -467,11 +497,8 @@ a:hover {
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.5s ease;
-    cursor: default;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Активное состояние узла */
 .node.active .node-content {
     background: var(--color-accent);
     color: var(--color-primary);
@@ -496,6 +523,13 @@ a:hover {
     .hero-content h1 { font-size: 2rem; }
     .hero-content .subtitle { font-size: 1.2rem; }
     
+    .image-float-container {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px 0;
+    }
+    
     .pentagon-container {
         transform: scale(0.7);
         margin: -75px auto;
@@ -512,7 +546,6 @@ a:hover {
     .pentagon-container {
         transform: scale(0.5);
         margin: -125px auto;
-        width: 500px;
     }
     
     .active-dimension-desc { font-size: 1rem; margin-top: 20px; }
