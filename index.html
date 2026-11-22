@@ -3,220 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Sovereignty</title>
-    
-    <!-- Подключаем шрифты -->
+    <title>Цифровой суверенитет</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Подключаем стили -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- 1. ИНТЕРАКТИВНАЯ ШАПКА С ВИДЕО -->
-    <div class="scroll-track">
-        <div class="sticky-viewport">
-            <canvas id="video-canvas"></canvas>
+    <!-- СЕКЦИЯ 1: ШАПКА -->
+    <div class="hero-wrapper" id="hero-wrapper">
+        <div class="hero-sticky">
+            <!-- Слайдер фона -->
+            <div class="bg-slider">
+                <img src="img/1.jpg" alt="Фон 1" class="bg-img active">
+                <img src="img/2.jpg" alt="Фон 2" class="bg-img">
+                <img src="img/3.jpg" alt="Фон 3" class="bg-img">
+            </div>
             
-            <div class="overlay-text">
-                <h1 id="main-title">Не запретами, а контентом</h1>
-                <p id="sub-title">Россия через TV BRICS удваивает медиаприсутствие</p>
+            <div class="hero-content">
+                <div class="text-block active" id="text-1">
+                    <h1>Цифровой суверенитет России, Китая и Индии: от внутреннего контроля к внешнему информационному присутствию</h1>
+                </div>
+                <div class="text-block" id="text-2">
+                    <p class="subtitle">Как Россия, Китай и Индия отвечают на вызовы дезинформации, развивают национальные платформы и формируют внешнюю повестку.</p>
+                </div>
+                <div class="text-block" id="text-3">
+                    <p class="direction">Направление: Свой интернет: модели цифрового суверенитета Китая, России и Индии</p>
+                </div>
             </div>
 
-            <!-- Анимированная стрелочка -->
-            <a href="#content-start" class="scroll-arrow" id="scrollArrow">
+            <div class="scroll-arrow" id="scrollArrow">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
-            </a>
+            </div>
         </div>
     </div>
 
-    <!-- 2. ОСНОВНОЙ КОНТЕНТ -->
-    <main class="content-section" id="content-start">
-        <div class="container">
+    <!-- СЕКЦИЯ 2: АКТУАЛЬНОСТЬ -->
+    <section class="relevance-section container">
+        <h2 class="section-title">Актуальность</h2>
+        
+        <div class="relevance-content">
+            <p>В социальной сети X распространилось изображение, на котором президент России Владимир Путин сидит отдельно от председателя КНР Си Цзиньпина и президента США Дональда Трампа. Картинку использовали как подтверждение предполагаемого дипломатического пренебрежения российским лидером. Однако старший научный сотрудник МГИМО МИД России Игорь Денисов доказал: лидеры находились за одним столом. Показательно, что этот грубый фейк распространил бывший посол США в России Майкл Макфол — и лишь после разоблачения фактчекеров удалил публикацию.</p>
             
-            <!-- КАРУСЕЛЬ С ЦИТАТАМИ -->
-            <section class="carousel-section">
-                <h2 class="section-subtitle">Мнения экспертов</h2>
-                <div class="carousel-container">
-                    <button class="carousel-arrow" id="prevBtn" aria-label="Предыдущая цитата">&#10094;</button>
-                    
-                    <div class="carousel-stage">
-                        <div class="carousel-item">
-                            <img src="img/1.png" alt="Цитата 1">
+            <div class="image-container">
+                <a href="https://rurtnews.com/news/649173-shenzhen-summit-ai-fakes/" target="_blank">
+                    <img src="img/2.jpg" alt="Фейковый пост Макфола" class="content-img">
+                </a>
+                <p class="img-caption">Пример сфабрикованного изображения (нажмите, чтобы перейти к источнику)</p>
+            </div>
+
+            <p>Количество фейков в сети стремительно растет, и если одни из них лишь создают неверный образ страны, то другие приводят к страшным последствиям. Пример тому — доклад о фальсификации событий в Буче и кровавые инсценировки киевского режима, который Сергей Лавров передал китайскому коллеге в 2026 г. Этот документ наглядно демонстрирует, как сфабрикованные истории превращаются в инструмент глобальных обвинений.</p>
+
+            <div class="image-container">
+                <a href="https://ria.ru/20261014/lavrov-2124543945.html" target="_blank">
+                    <img src="img/3.webp" alt="Лавров передает доклад" class="content-img">
+                </a>
+                <p class="img-caption">Сергей Лавров передает доклад (нажмите, чтобы перейти к источнику)</p>
+            </div>
+
+            <div class="conclusion-box">
+                <p>В условиях, когда информационные атаки ведутся на постоянной основе, государство не может оставаться сторонним наблюдателем. Без реальных рычагов контроля над цифровой инфраструктурой и собственными каналами вещания страна не сможет ни остановить поток дезинформации, ни донести свою правду до мира. Поэтому цифровой суверенитет становится базовой необходимостью для национальной безопасности.</p>
+            </div>
+            
+            <div class="down-btn-container">
+                <a href="#definition" class="down-btn">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 3: ПОНЯТИЕ И КАРТОЧКИ -->
+    <section class="definition-section" id="definition">
+        <div class="container">
+            <div class="text-box">
+                <h2>Понятие цифрового суверенитета</h2>
+                <p>Несмотря на то, что термин «цифровой суверенитет» прочно вошел в политический лексикон, единого универсального определения для него нет. Причиной выступает сложность переноса традиционного государственного суверенитета в киберпространство, где границы передачи информации не совпадают с территориальными границами стран [Коданева С.И.].</p>
+                <p>Правовые базы России, Китая и Индии регламентируют отдельные компоненты: защиту данных, контроль над инфраструктурой, регулирование контента и развитие национальных платформ. Совокупность этих законодательных мер позволяет сформулировать рабочее понятие цифрового суверенитета.</p>
+            </div>
+
+            <div class="cards-slider-wrapper">
+                <button class="nav-btn prev" id="prevCard">&#10094;</button>
+                
+                <div class="cards-track-container">
+                    <div class="cards-track" id="cardsTrack">
+                        <!-- Карточка РФ -->
+                        <div class="card">
+                            <button class="help-btn" data-target="modal-ru">?</button>
+                            <h3>Цифровой суверенитет РФ</h3>
+                            <p>Это совокупность принципов, обеспечивающая верховенство и независимость государственной власти в национальном сегменте информационного пространства. В рамках действующего законодательства он реализуется через территориальную локализацию данных и коммуникаций, технологическую независимость сетевой инфраструктуры, защиту критической информационной инфраструктуры, а также государственный контроль над информационным контентом и регулирование цифровых платформ для обеспечения безопасности и единства экономического пространства.</p>
                         </div>
-                        <div class="carousel-item">
-                            <img src="img/2.png" alt="Цитата 2">
+                        <!-- Карточка Индии -->
+                        <div class="card">
+                            <button class="help-btn" data-target="modal-in">?</button>
+                            <h3>Цифровой суверенитет Индии</h3>
+                            <p>Это совокупность принципов, обеспечивающих независимый государственный контроль над национальной цифровой экосистемой (данными, сетями и инфраструктурой), приоритет национальной безопасности и технологической самодостаточности, а также защиту цифровой автономии и конфиденциальности граждан.</p>
                         </div>
-                        <div class="carousel-item">
-                            <img src="img/3.png" alt="Цитата 3">
+                        <!-- Карточка КНР -->
+                        <div class="card">
+                            <button class="help-btn" data-target="modal-cn">?</button>
+                            <h3>Цифровой суверенитет КНР</h3>
+                            <p>Это совокупность принципов, закреплённых в законодательстве, которые означают верховное право государства осуществлять юрисдикцию над сетевой инфраструктурой и данными (как стратегическим ресурсом) в пределах своей территории, а также ограничивать индивидуальные права (включая конфиденциальность) и обязывать операторов к сотрудничеству с органами безопасности в тех случаях, когда это необходимо для защиты национальной безопасности и общественных интересов.</p>
                         </div>
                     </div>
-                    
-                    <button class="carousel-arrow" id="nextBtn" aria-label="Следующая цитата">&#10095;</button>
                 </div>
-            </section>
 
-            <!-- ИНТЕРАКТИВНАЯ ТАБЛИЦА (СУВЕРЕНИТЕТ) -->
-            <section class="sovereignty-section">
-                <h2 class="section-subtitle">Пять измерений цифрового суверенитета</h2>
-                
-                <div class="sovereignty-wrapper">
-                    <table class="sovereignty-table">
-                        <thead>
-                            <tr>
-                                <th>Критерий</th>
-                                <th>Китай</th>
-                                <th>Россия</th>
-                                <th>Индия</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Основной приоритет</td>
-                                <td>Комплексный контроль</td>
-                                <td>Безопасность и устойчивость</td>
-                                <td>Цифровая инфраструктура</td>
-                            </tr>
-                            <tr>
-                                <td>Национальные платформы</td>
-                                <td>Baidu, WeChat</td>
-                                <td>Яндекс, VK</td>
-                                <td>India Stack</td>
-                            </tr>
-                            <tr>
-                                <td>Регулирование контента</td>
-                                <td>Жёсткое</td>
-                                <td>Активное</td>
-                                <td>Регулируемое</td>
-                            </tr>
-                            <tr>
-                                <td>Оборот данных</td>
-                                <td>Комплексное регулирование</td>
-                                <td>Локализация</td>
-                                <td>Более гибкий режим</td>
-                            </tr>
-                            <tr>
-                                <td>Компоненты по Игнатову</td>
-                                <td>5 из 5</td>
-                                <td>4 из 5</td>
-                                <td>3 из 5</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
+                <button class="nav-btn next" id="nextCard">&#10095;</button>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Скрытое видео -->
-    <video id="source-video" src="img/vid 1.mp4" muted playsinline preload="auto"></video>
+    <!-- СЕКЦИЯ 4: ИНФОГРАФИКА (5 ИЗМЕРЕНИЙ) -->
+    <section class="dimensions-section">
+        <div class="container">
+            <h2 class="section-title">Пять измерений цифрового суверенитета</h2>
+            <p class="dim-desc">Кандидат политических наук и старший научный сотрудник Александр Игнатов применил пять направлений для сравнения национальных моделей суверенитета в исследовании цифрового суверенитета стран БРИКС.</p>
+            
+            <div class="pentagon-container">
+                <div class="center-circle">
+                    <span id="centerTitle">Цифровой<br>суверенитет</span>
+                </div>
+                
+                <div class="node" style="--angle: 0deg;" data-index="0">
+                    <div class="node-content"><span>1. Технологическая самостоятельность</span></div>
+                </div>
+                <div class="node" style="--angle: 72deg;" data-index="1">
+                    <div class="node-content"><span>2. Инфраструктурная независимость</span></div>
+                </div>
+                <div class="node" style="--angle: 144deg;" data-index="2">
+                    <div class="node-content"><span>3. Национальные платформы</span></div>
+                </div>
+                <div class="node" style="--angle: 216deg;" data-index="3">
+                    <div class="node-content"><span>4. Регулирование контента</span></div>
+                </div>
+                <div class="node" style="--angle: 288deg;" data-index="4">
+                    <div class="node-content"><span>5. Суверенитет данных</span></div>
+                </div>
+            </div>
 
-    <!-- Подключаем GSAP -->
+            <div class="active-dimension-desc" id="activeDesc">
+                Производство микрочипов, оборудования, программного обеспечения и контроль над критическими производственными цепочками.
+            </div>
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНЫЕ ОКНА С ТАБЛИЦАМИ -->
+    <!-- РФ -->
+    <div class="modal" id="modal-ru">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h3>Россия (Коданева С.И.)</h3>
+            <table class="law-table">
+                <tr><th></th><th>ФЗ от 27.07.2006 г. № 152-ФЗ</th><th>ФЗ от 07.07.2003 г. № 126-ФЗ</th><th>ФЗ от 01.05.2019 г. № 90-ФЗ</th></tr>
+                <tr><td>Принципы</td><td>Территориальная локализация персональных данных граждан РФ</td><td>Хранение информации о коммуникациях и предоставление доступа к ней правоохранительным органам на территории РФ</td><td>Создание национальной системы маршрутизации трафика и доменных имён для устойчивости Рунета</td></tr>
+                <tr><th></th><th>ФЗ от 26.07.2017 г. № 187-ФЗ</th><th>ФЗ от 27.07.2006 г. № 149-ФЗ</th><th>№ 289-ФЗ (от 31.07.2025)</th></tr>
+                <tr><td>Принципы</td><td>Защита критической инфраструктуры</td><td>Регулирование распространения информации и ограничение доступа к незаконному контенту</td><td>Регулирование деятельности платформ для защиты прав пользователей и единства экономического пространства</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- КНР -->
+    <div class="modal" id="modal-cn">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h3>Китай (Коданева С.И.)</h3>
+            <table class="law-table">
+                <tr><th></th><th>Закон о кибербезопасности 2016 (ред. 2025)</th><th>Закон о защите данных 2021</th><th>Закон о защите личной информации 2021</th></tr>
+                <tr><td>Принципы</td><td>Территориальная юрисдикция над сетевой инфраструктурой и «высшая юрисдикция» внутри страны.</td><td>Суверенитет над данными как стратегическим ресурсом, включая контроль над важными данными и их трансграничными потоками.</td><td>Суверенное право ограничивать индивидуальные права ради национальной безопасности и общественных интересов; обязанность операторов сотрудничать с органами безопасности.</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Индия -->
+    <div class="modal" id="modal-in">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h3>Индия (Коданева С.И.)</h3>
+            <table class="law-table">
+                <tr><th></th><th>Закон о защите цифровых персональных данных 2023</th><th>Закон об информационных Технологиях 2000</th><th>Закон о телекоммуникациях 2023</th></tr>
+                <tr><td>Принципы</td><td>Прозрачность обработки данных, минимизация сбора и широкий доступ государства.</td><td>Электронные документы равны бумажным. Криминализация всех преступлений в сфере кибербезопасности страны.</td><td>Всеобщий доступ к связи; приоритет национальной безопасности с правом перехвата.</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Подключение скриптов -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- Логика шапки (Видео) -->
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        const video = document.getElementById('source-video');
-        const canvas = document.getElementById('video-canvas');
-        const ctx = canvas.getContext('2d', { alpha: false });
-        const title = document.getElementById('main-title');
-        const subtitle = document.getElementById('sub-title');
-        const scrollArrow = document.getElementById('scrollArrow');
-        let lastTime = -1;
-        const MAX_WIDTH = 1920;
-        const MAX_HEIGHT = 1080;
-
-        function resizeCanvas() {
-            canvas.width = Math.min(window.innerWidth, MAX_WIDTH);
-            canvas.height = Math.min(window.innerHeight, MAX_HEIGHT);
-            if (video.readyState >= 2) drawVideoFrame(); 
-        }
-
-        function drawVideoFrame() {
-            const hRatio = canvas.width / video.videoWidth;
-            const vRatio = canvas.height / video.videoHeight;
-            const ratio = Math.max(hRatio, vRatio);
-            const centerShift_x = (canvas.width - video.videoWidth * ratio) / 2;
-            const centerShift_y = (canvas.height - video.videoHeight * ratio) / 2;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight, centerShift_x, centerShift_y, video.videoWidth * ratio, video.videoHeight * ratio);
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        video.addEventListener('loadeddata', () => {
-            drawVideoFrame();
-            video.play().then(() => video.pause()).catch(e => console.log(e));
-
-            gsap.to(video, {
-                currentTime: video.duration, ease: "none",
-                scrollTrigger: {
-                    trigger: ".scroll-track", start: "top top", end: "bottom bottom",
-                    scrub: 0.5, pin: ".sticky-viewport", pinSpacing: true, anticipatePin: 1, invalidateOnRefresh: true,
-                    onUpdate: (self) => {
-                        const progress = self.progress;
-                        scrollArrow.style.opacity = progress > 0.05 ? 0 : 1;
-                        
-                        if (progress > 0.1 && progress < 0.4) {
-                            title.innerText = "Медиасеть TV BRICS"; subtitle.innerText = "Объединяя 100 крупнейших СМИ из 30 стран";
-                            title.style.opacity = 1; subtitle.style.opacity = 1;
-                        } else if (progress >= 0.4 && progress < 0.8) {
-                            title.innerText = "Новый взгляд"; subtitle.innerText = "На пути к многополярному миру";
-                            title.style.opacity = 0.8; subtitle.style.opacity = 0.6;
-                        } else if (progress >= 0.8) {
-                            title.innerText = "Не запретами, а контентом"; subtitle.innerText = "Информационный суверенитет и многообразие мнений";
-                            title.style.opacity = 1; subtitle.style.opacity = 1;
-                        } else { 
-                            title.style.opacity = 0; 
-                            subtitle.style.opacity = 0; 
-                        }
-                    }
-                }
-            });
-
-            function render() {
-                if (video.readyState >= 2 && video.currentTime !== lastTime) {
-                    drawVideoFrame(); lastTime = video.currentTime;
-                }
-                requestAnimationFrame(render);
-            }
-            render();
-        });
-    </script>
-
-    <!-- Логика карусели -->
-    <script>
-        const items = document.querySelectorAll('.carousel-item');
-        let currentIndex = 0;
-        const totalItems = items.length;
-
-        function updateCarousel() {
-            items.forEach((item, index) => {
-                item.classList.remove('active', 'left', 'right');
-                if (index === currentIndex) item.classList.add('active');
-                else if (index === (currentIndex - 1 + totalItems) % totalItems) item.classList.add('left');
-                else item.classList.add('right');
-            });
-        }
-
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-            updateCarousel();
-        });
-
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalItems;
-            updateCarousel();
-        });
-        updateCarousel();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
